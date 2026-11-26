@@ -12,6 +12,7 @@ class Bot(pyrogram.Client):
     def __init__(self):
         super().__init__(
             name="AloneX",
+            in_memory=True,
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             bot_token=config.BOT_TOKEN,
