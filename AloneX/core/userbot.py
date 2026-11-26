@@ -12,7 +12,6 @@ class Userbot(Client):
     def __init__(self):
         """
         Initializes the userbot with multiple clients.
-
         This method sets up clients for the userbot using predefined session strings.
         Each client is assigned a unique name based on the key in the `clients` dictionary.
         """
@@ -26,6 +25,7 @@ class Userbot(Client):
                 key,
                 Client(
                     name=name,
+                    in_memory=True,
                     api_id=config.API_ID,
                     api_hash=config.API_HASH,
                     session_string=session,
