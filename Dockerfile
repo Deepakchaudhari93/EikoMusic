@@ -14,4 +14,8 @@ RUN pip3 install -U pip && pip3 install -U -r requirements.txt
 
 COPY . .
 
+RUN rm -rf /app/cache /app/downloads \
+    && ln -s /tmp/cache /app/cache \
+    && ln -s /tmp/downloads /app/downloads
+
 CMD ["bash", "start"]
