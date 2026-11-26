@@ -5,15 +5,18 @@
 
 import time
 import logging
-import static_ffmpeg
-static_ffmpeg.add_paths()
+try:
+    import static_ffmpeg
+    static_ffmpeg.add_paths()
+except Exception:
+    pass
 from logging.handlers import RotatingFileHandler
 
 logging.basicConfig(
     format="[%(asctime)s - %(levelname)s] - %(name)s: %(message)s",
     datefmt="%d-%b-%y %H:%M:%S",
     handlers=[
-        RotatingFileHandler("log.txt", maxBytes=10485760, backupCount=5),
+        RotatingFileHandler("/tmp/log.txt", maxBytes=10485760, backupCount=5),
         logging.StreamHandler(),
     ],
     level=logging.INFO,
